@@ -28,14 +28,14 @@ class CustomInputForm extends StatelessWidget {
       controller: controller,
       readOnly: readOnly ?? false,
       onTap: onTap,
-      style: const TextStyle(color: Color.fromARGB(0, 0, 0, 0), fontWeight: FontWeight.w900),
+      style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w900),
       maxLines: maxLines ?? 1,
       obscureText: obscureText ?? false,
       keyboardType: keyboardType ?? TextInputType.text,
       cursorColor: Colors.black,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color.fromARGB(255, 218, 255, 123),
+        fillColor: const Color.fromARGB(255, 218, 255, 123),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(8),

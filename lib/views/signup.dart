@@ -30,36 +30,20 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             Text(
               "Sign Up",
-              style: TextStyle(
-                  color: KLightBlue,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+              style: TextStyle(color: KLightBlue, fontSize: 32, fontWeight: FontWeight.w800),
             ),
             SizedBox(
               height: 8,
             ),
-            CustomInputForm(
-                controller: _nameController,
-                icon: Icons.person_outline,
-                label: "Name",
-                hint: "Enter your Name"),
+            CustomInputForm(controller: _nameController, icon: Icons.person_outline, label: "Name", hint: "Enter your Name"),
             SizedBox(
               height: 8,
             ),
-            CustomInputForm(
-                controller: _emailController,
-                icon: Icons.email_outlined,
-                label: "Email",
-                hint: "Enter your Email"),
+            CustomInputForm(controller: _emailController, icon: Icons.email_outlined, label: "Email", hint: "Enter your Email"),
             SizedBox(
               height: 8,
             ),
-            CustomInputForm(
-                obscureText: true,
-                controller: _passwordController,
-                icon: Icons.lock_outline_rounded,
-                label: "Password",
-                hint: "Enter your Password"),
+            CustomInputForm(obscureText: true, controller: _passwordController, icon: Icons.lock_outline_rounded, label: "Password", hint: "Enter your Password"),
             SizedBox(
               height: 8,
             ),
@@ -68,55 +52,40 @@ class _SignUpPageState extends State<SignUpPage> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  // createUser(_nameController.text, _emailController.text,
-                  //         _passwordController.text)
-                  //     .then((value) {
-                  //   if (value == "success") {
-                  //     ScaffoldMessenger.of(context).showSnackBar(
-                  //         SnackBar(content: Text("Account Created")));
-                  //     Future.delayed(
-                  //         Duration(seconds: 2),
-                  //         () => Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //                 builder: (context) => LoginPage())));
-                  //   } else {
-                  //     ScaffoldMessenger.of(context)
-                  //         .showSnackBar(SnackBar(content: Text(value)));
-                  //   }
-                  // });
+                  createUser(_nameController.text, _emailController.text, _passwordController.text).then((value) {
+                    if (value == "success") {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Account Created")));
+                      Future.delayed(Duration(seconds: 2), () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage())));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value)));
+                    }
+                  });
                 },
                 child: Text("Sign Up"),
-                style: OutlinedButton.styleFrom(
-                    foregroundColor: KLightBlue,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8))),
+                style: OutlinedButton.styleFrom(foregroundColor: KLightBlue, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
               ),
             ),
             SizedBox(
               height: 8,
             ),
             GestureDetector(
-              onTap: () => Navigator.pop(context),
+              // onTap: () => Navigator.push(context,
+              // MaterialPageRoute(builder: (context)=> LoginPage())
+              // ),
+              onTap: ()=> Navigator.pop(context),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Already have an account?",
-                    style: TextStyle(
-                        color: KLightBlue,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
+                    style: TextStyle(color: KLightBlue, fontSize: 16, fontWeight: FontWeight.w300),
                   ),
                   SizedBox(
                     width: 4,
                   ),
                   Text(
                     "Login",
-                    style: TextStyle(
-                        color: KLightBlue,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
+                    style: TextStyle(color: KLightBlue, fontSize: 16, fontWeight: FontWeight.w600),
                   )
                 ],
               ),
